@@ -1,0 +1,34 @@
+{
+	"name": "PLDataFlowTransformation",
+	"properties": {
+		"activities": [
+			{
+				"name": "CustomCopyActivity",
+				"type": "ExecuteDataFlow",
+				"dependsOn": [],
+				"policy": {
+					"timeout": "1.00:00:00",
+					"retry": 0,
+					"retryIntervalInSeconds": 30,
+					"secureOutput": false,
+					"secureInput": false
+				},
+				"userProperties": [],
+				"typeProperties": {
+					"dataflow": {
+						"referenceName": "CustomCopyActivity",
+						"type": "DataFlowReference"
+					},
+					"compute": {
+						"coreCount": 8,
+						"computeType": "General"
+					},
+					"traceLevel": "Fine"
+				}
+			}
+		],
+		"annotations": [],
+		"lastPublishTime": "2022-07-07T11:36:07Z"
+	},
+	"type": "Microsoft.DataFactory/factories/pipelines"
+}
