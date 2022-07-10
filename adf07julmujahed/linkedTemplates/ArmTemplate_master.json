@@ -7,13 +7,17 @@
 			"metadata": "Data Factory name",
 			"defaultValue": "adf07julmujahed"
 		},
+		"LSBlob_connectionString": {
+			"type": "secureString",
+			"metadata": "Secure string for 'connectionString' of 'LSBlob'"
+		},
 		"LSGen2_accountKey": {
 			"type": "secureString",
 			"metadata": "Secure string for 'accountKey' of 'LSGen2'"
 		},
 		"LSGen2_properties_typeProperties_url": {
 			"type": "string",
-			"defaultValue": "https://sa07julmujahed.dfs.core.windows.net/"
+			"defaultValue": "https://sa30junmujahed.dfs.core.windows.net/"
 		},
 		"containerUri": {
 			"type": "string",
@@ -41,6 +45,9 @@
 				"parameters": {
 					"factoryName": {
 						"value": "[parameters('factoryName')]"
+					},
+					"LSBlob_connectionString": {
+						"value": "[parameters('LSBlob_connectionString')]"
 					},
 					"LSGen2_accountKey": {
 						"value": "[parameters('LSGen2_accountKey')]"

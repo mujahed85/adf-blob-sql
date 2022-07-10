@@ -5,11 +5,14 @@
 		"factoryName": {
 			"value": "adf07julmujahed"
 		},
+		"LSBlob_connectionString": {
+			"value": ""
+		},
 		"LSGen2_accountKey": {
 			"value": ""
 		},
 		"LSGen2_properties_typeProperties_url": {
-			"value": "https://sa07julmujahed.dfs.core.windows.net/"
+			"value": "https://sa30junmujahed.dfs.core.windows.net/"
 		}
 	}
 }
