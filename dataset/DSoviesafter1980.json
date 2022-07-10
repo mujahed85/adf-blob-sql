@@ -1,0 +1,21 @@
+{
+	"name": "DSoviesafter1980",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "LSGen2",
+			"type": "LinkedServiceReference"
+		},
+		"annotations": [],
+		"type": "DelimitedText",
+		"typeProperties": {
+			"location": {
+				"type": "AzureBlobFSLocation",
+				"fileSystem": "moviesafter1980"
+			},
+			"columnDelimiter": ",",
+			"escapeChar": "\\",
+			"quoteChar": "\""
+		},
+		"schema": []
+	}
+}
