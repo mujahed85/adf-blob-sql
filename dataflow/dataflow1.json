@@ -18,21 +18,21 @@
 						"referenceName": "DelimitedText1",
 						"type": "DatasetReference"
 					},
-					"name": "sink1"
+					"name": "snk1960"
 				},
 				{
 					"dataset": {
 						"referenceName": "DSoviesafter1980",
 						"type": "DatasetReference"
 					},
-					"name": "sink2"
+					"name": "snk1980"
 				},
 				{
 					"dataset": {
 						"referenceName": "DSallothersmovies",
 						"type": "DatasetReference"
 					},
-					"name": "sink3"
+					"name": "snkOthers"
 				}
 			],
 			"transformations": [
@@ -61,21 +61,21 @@
 				"     preCommands: [],",
 				"     postCommands: [],",
 				"     skipDuplicateMapInputs: true,",
-				"     skipDuplicateMapOutputs: true) ~> sink1",
+				"     skipDuplicateMapOutputs: true) ~> snk1960",
 				"split1@moviesAfter1980 sink(allowSchemaDrift: true,",
 				"     validateSchema: false,",
 				"     umask: 0022,",
 				"     preCommands: [],",
 				"     postCommands: [],",
 				"     skipDuplicateMapInputs: true,",
-				"     skipDuplicateMapOutputs: true) ~> sink2",
+				"     skipDuplicateMapOutputs: true) ~> snk1980",
 				"split1@AllOthersMovies sink(allowSchemaDrift: true,",
 				"     validateSchema: false,",
 				"     umask: 0022,",
 				"     preCommands: [],",
 				"     postCommands: [],",
 				"     skipDuplicateMapInputs: true,",
-				"     skipDuplicateMapOutputs: true) ~> sink3"
+				"     skipDuplicateMapOutputs: true) ~> snkOthers"
 			]
 		}
 	}
