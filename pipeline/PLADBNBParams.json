@@ -29,6 +29,11 @@
 				}
 			}
 		],
+		"parameters": {
+			"name": {
+				"type": "string"
+			}
+		},
 		"annotations": []
 	}
 }
