@@ -1,5 +1,5 @@
 {
-	"name": "DelimitedText1",
+	"name": "DSmoviesBefore1960",
 	"properties": {
 		"linkedServiceName": {
 			"referenceName": "LSGen2",
