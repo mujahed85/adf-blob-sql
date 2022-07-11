@@ -1,0 +1,32 @@
+{
+	"name": "dataflow1",
+	"properties": {
+		"type": "MappingDataFlow",
+		"typeProperties": {
+			"sources": [
+				{
+					"dataset": {
+						"referenceName": "SourceDS",
+						"type": "DatasetReference"
+					},
+					"name": "srcMoviesDB"
+				}
+			],
+			"sinks": [],
+			"transformations": [],
+			"scriptLines": [
+				"source(output(",
+				"          movie as string,",
+				"          title as string,",
+				"          genres as string,",
+				"          year as string,",
+				"          Rating as string,",
+				"          {Rotton Tomato} as string",
+				"     ),",
+				"     allowSchemaDrift: true,",
+				"     validateSchema: false,",
+				"     ignoreNoFilesFound: false) ~> srcMoviesDB"
+			]
+		}
+	}
+}
