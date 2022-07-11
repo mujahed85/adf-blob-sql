@@ -12,7 +12,15 @@
 					"name": "srcMoviesDB"
 				}
 			],
-			"sinks": [],
+			"sinks": [
+				{
+					"dataset": {
+						"referenceName": "SinkDS",
+						"type": "DatasetReference"
+					},
+					"name": "snkAll"
+				}
+			],
 			"transformations": [],
 			"scriptLines": [
 				"source(output(",
@@ -25,7 +33,14 @@
 				"     ),",
 				"     allowSchemaDrift: true,",
 				"     validateSchema: false,",
-				"     ignoreNoFilesFound: false) ~> srcMoviesDB"
+				"     ignoreNoFilesFound: false) ~> srcMoviesDB",
+				"srcMoviesDB sink(allowSchemaDrift: true,",
+				"     validateSchema: false,",
+				"     umask: 0022,",
+				"     preCommands: [],",
+				"     postCommands: [],",
+				"     skipDuplicateMapInputs: true,",
+				"     skipDuplicateMapOutputs: true) ~> snkAll"
 			]
 		}
 	}
