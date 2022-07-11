@@ -1,5 +1,5 @@
 {
-	"name": "DSoviesafter1980",
+	"name": "DSmoviesafter1980",
 	"properties": {
 		"linkedServiceName": {
 			"referenceName": "LSGen2",
