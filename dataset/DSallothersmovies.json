@@ -10,6 +10,10 @@
 		"typeProperties": {
 			"location": {
 				"type": "AzureBlobFSLocation",
+				"fileName": {
+					"value": "@concat('Inc-',pipeline().RunId,'.txt')",
+					"type": "Expression"
+				},
 				"fileSystem": "allothersmovies"
 			},
 			"columnDelimiter": ",",
