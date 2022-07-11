@@ -15,13 +15,31 @@
 			"sinks": [
 				{
 					"dataset": {
-						"referenceName": "SinkDS",
+						"referenceName": "DSmoviesBefore1960",
 						"type": "DatasetReference"
 					},
-					"name": "snkAll"
+					"name": "snk1960"
+				},
+				{
+					"dataset": {
+						"referenceName": "DSmoviesafter1980",
+						"type": "DatasetReference"
+					},
+					"name": "snk1980"
+				},
+				{
+					"dataset": {
+						"referenceName": "DSallothersmovies",
+						"type": "DatasetReference"
+					},
+					"name": "sink1"
 				}
 			],
-			"transformations": [],
+			"transformations": [
+				{
+					"name": "splt1Movies1960"
+				}
+			],
 			"scriptLines": [
 				"source(output(",
 				"          movie as string,",
@@ -34,13 +52,30 @@
 				"     allowSchemaDrift: true,",
 				"     validateSchema: false,",
 				"     ignoreNoFilesFound: false) ~> srcMoviesDB",
-				"srcMoviesDB sink(allowSchemaDrift: true,",
+				"srcMoviesDB split(toInteger(year) < 1960,",
+				"     toInteger(year) > 1980,",
+				"     disjoint: false) ~> splt1Movies1960@(moviesBefore1960, moviesAfter1980, AllOtherMovies)",
+				"splt1Movies1960@moviesBefore1960 sink(allowSchemaDrift: true,",
 				"     validateSchema: false,",
 				"     umask: 0022,",
 				"     preCommands: [],",
 				"     postCommands: [],",
 				"     skipDuplicateMapInputs: true,",
-				"     skipDuplicateMapOutputs: true) ~> snkAll"
+				"     skipDuplicateMapOutputs: true) ~> snk1960",
+				"splt1Movies1960@moviesAfter1980 sink(allowSchemaDrift: true,",
+				"     validateSchema: false,",
+				"     umask: 0022,",
+				"     preCommands: [],",
+				"     postCommands: [],",
+				"     skipDuplicateMapInputs: true,",
+				"     skipDuplicateMapOutputs: true) ~> snk1980",
+				"splt1Movies1960@AllOtherMovies sink(allowSchemaDrift: true,",
+				"     validateSchema: false,",
+				"     umask: 0022,",
+				"     preCommands: [],",
+				"     postCommands: [],",
+				"     skipDuplicateMapInputs: true,",
+				"     skipDuplicateMapOutputs: true) ~> sink1"
 			]
 		}
 	}
